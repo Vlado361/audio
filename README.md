@@ -6,6 +6,7 @@ This repository contains audio files for various projects.
 - 6_Temny_les.mp3
 
 ## Krvavy Dobsinsky
+- Piargy-2.mp3 (new version)
 - Piargy.mp3 (split into parts due to GitHub file size limits)
 
 ### How to join the Piargy.mp3 parts
