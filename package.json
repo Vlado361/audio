@@ -1,0 +1,19 @@
+{
+  "name": "espomienka-cms",
+  "version": "1.0.0",
+  "description": "eSpomienka Git-based CMS blog",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "build": "echo 'Static site - no build needed'",
+    "start": "python3 -m http.server 8080"
+  },
+  "keywords": ["blog", "cms", "git-based", "static"],
+  "author": "Vlado361",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vlado361/audio.git"
+  },
+  "homepage": "https://github.com/Vlado361/audio#readme"
+}
