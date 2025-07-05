@@ -821,8 +821,7 @@ Potom commitni a pushni do Git repozitára!
 
             // Generate complete blog HTML that reads from JSON
             exportSiteUpdate() {
-                const blogHTML = `
-<!-- BLOG SECTION - Replace in your main blog.html -->
+                const blogHTML = `<!-- BLOG SECTION - Replace in your main blog.html -->
 <section class="blog-intro">
   <div class="container">
     <h2 id="blogTitle">Rady a inšpirácie</h2>
@@ -844,7 +843,7 @@ Potom commitni a pushni do Git repozitára!
 </section>
 
 <script>
-// Blog JSON loader
+// Blog JSON loader - add this to your blog.html
 class BlogLoader {
   constructor() {
     this.posts = [];
@@ -867,7 +866,6 @@ class BlogLoader {
   }
 
   async loadData() {
-    // Load all JSON data
     const [postsResponse, categoriesResponse, settingsResponse] = await Promise.all([
       fetch('./data/posts.json'),
       fetch('./data/categories.json'),
@@ -878,7 +876,6 @@ class BlogLoader {
     this.categories = await categoriesResponse.json();
     this.settings = await settingsResponse.json();
 
-    // Sort posts by date (newest first)
     this.posts = this.posts
       .filter(post => post.published)
       .sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -887,11 +884,8 @@ class BlogLoader {
   }
 
   renderBlog() {
-    // Update blog header
     document.getElementById('blogTitle').textContent = this.settings.blogTitle;
     document.getElementById('blogSubtitle').textContent = this.settings.blogSubtitle;
-
-    // Render posts
     this.renderPosts();
     this.renderPagination();
   }
@@ -914,51 +908,12 @@ class BlogLoader {
           </div>
           <h3 class="blog-title">\${post.title}</h3>
           <p class="blog-excerpt">\${post.excerpt}</p>
-          <a href="/article/\${post.id}" class="read-more">Čítať celý článok</a>
+          <a href="blog/\${post.slug}.html" class="read-more">Čítať celý článok</a>
         </div>
       </article>
     \`).join('');
 
     document.getElementById('blogPostsGrid').innerHTML = postsHTML || '<p>Žiadne články na zobrazenie.</p>';
-  }
-
-  renderPagination() {
-    const totalPages = Math.ceil(this.posts.length / this.postsPerPage);
-
-    if (totalPages <= 1) {
-      document.getElementById('blogPagination').style.display = 'none';
-      return;
-    }
-
-    let paginationHTML = '';
-
-    // Previous button
-    if (this.currentPage > 1) {
-      paginationHTML += \`<button onclick="blogLoader.goToPage(\${this.currentPage - 1})">← Predchádzajúca</button>\`;
-    }
-
-    // Page numbers
-    for (let i = 1; i <= totalPages; i++) {
-      const active = i === this.currentPage ? 'active' : '';
-      paginationHTML += \`<button class="\${active}" onclick="blogLoader.goToPage(\${i})">\${i}</button>\`;
-    }
-
-    // Next button
-    if (this.currentPage < totalPages) {
-      paginationHTML += \`<button onclick="blogLoader.goToPage(\${this.currentPage + 1})">Nasledujúca →</button>\`;
-    }
-
-    document.getElementById('blogPagination').innerHTML = paginationHTML;
-    document.getElementById('blogPagination').style.display = 'flex';
-  }
-
-  goToPage(page) {
-    this.currentPage = page;
-    this.renderPosts();
-    this.renderPagination();
-
-    // Scroll to top of blog section
-    document.querySelector('.blog-posts').scrollIntoView({ behavior: 'smooth' });
   }
 
   getCategoryName(categoryId) {
@@ -967,14 +922,11 @@ class BlogLoader {
   }
 }
 
-// Initialize blog loader when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   window.blogLoader = new BlogLoader();
 });
 </script>
-
-<!-- END BLOG SECTION -->
-                `;
+<!-- END BLOG SECTION -->`;
 
                 this.downloadFile(blogHTML, 'blog-update.html', 'text/html');
             }
