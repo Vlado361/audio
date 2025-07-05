@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - eSpomienka | Rady a inšpirácie pre digitálne spomienky</title>
+    <meta name="description" content="Rady a inšpirácie pre digitálne spomienky | eSpomienka blog. Naučte sa vytvárať krásne memorial videá, používať QR kódy na hroboch a pomôcť deťom spracovať stratu.">
+    <meta name="keywords" content="digitálne spomienky, memorial video, QR kód hrob, rady spomienky, video spomienky, memorial webstránka, eSpomienka blog">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-inter text-gray-800 bg-cream">
+    
+    <!-- Header -->
+    <header class="static w-full bg-primary shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="assets/logo.png" alt="eSpomienka Logo" class="h-12 w-auto">
+                    <span class="font-playfair text-2xl font-semibold text-white">eSpomienka</span>
+                </div>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Domov</a>
+                    <a href="index.html#sluzby" class="nav-link">Služby</a>
+                    <a href="index.html#cennik" class="nav-link">Cenník</a>
+                    <a href="index.html#portfolio" class="nav-link">Portfólio</a>
+                    <a href="blog.html" class="nav-link text-gold">Blog</a>
+                    <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+421951553464" class="hidden md:flex items-center space-x-2 font-medium" style="color: #DAA520; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <span>+421 951 553 464</span>
+                    </a>
+                    
+                    <!-- Mobile menu button -->
+                    <button class="md:hidden p-2 text-white" id="mobile-menu-btn">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="pt-4 pb-2 space-y-2">
+                    <a href="index.html" class="block py-2 text-white hover:text-gold transition-colors">Domov</a>
+                    <a href="index.html#sluzby" class="block py-2 text-white hover:text-gold transition-colors">Služby</a>
+                    <a href="index.html#cennik" class="block py-2 text-white hover:text-gold transition-colors">Cenník</a>
+                    <a href="index.html#portfolio" class="block py-2 text-white hover:text-gold transition-colors">Portfólio</a>
+                    <a href="blog.html" class="block py-2 font-medium" style="color: #DAA520;">Blog</a>
+                    <a href="index.html#kontakt" class="block py-2 text-white hover:text-gold transition-colors">Kontakt</a>
+                    <a href="tel:+421951553464" class="block py-2 font-medium" style="color: #DAA520;">+421 951 553 464</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Hero Section -->
+    <section class="py-20 bg-cream">
+        <div class="container mx-auto px-6 text-center">
+            <h1 id="blogTitle" class="font-playfair text-4xl md:text-6xl font-bold mb-6 text-primary" style="font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1);" data-aos="fade-up">
+                Rady a inšpirácie
+            </h1>
+            <p id="blogSubtitle" class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-dark-gray" data-aos="fade-up" data-aos-delay="200">
+                Pomáhame vám vytvoriť dokonalé spomienky na vašich milovaných.<br>
+                Nájdite tu užitočné rady, moderné technológie a citlivé inšpirácie.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mt-8" data-aos="fade-up" data-aos-delay="400">
+                <span class="blog-category-tag">Rady</span>
+                <span class="blog-category-tag">Technológie</span>
+                <span class="blog-category-tag">Inšpirácie</span>
+                <span class="blog-category-tag">Rodina</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section class="py-20 bg-white" style="background-color: #FAFAFA;">
+        <div class="container mx-auto px-6">
+            <div class="posts-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" id="blogPostsGrid">
+                <!-- Posts will be loaded here by JavaScript -->
+                <div class="loading" style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #6b7280;">
+                    Načítavam články...
+                </div>
+            </div>
+
+            <div class="blog-pagination" id="blogPagination" style="display: none; justify-content: center; gap: 10px; margin-top: 30px;">
+                <!-- Pagination buttons will be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="blog-newsletter py-16 bg-gradient-to-r from-primary to-gray-700">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="font-playfair text-3xl font-bold text-white mb-4" data-aos="fade-up">Zostante v kontakte</h3>
+            <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Prihláste sa na odber a dostávajte najnovšie rady o digitálnych spomienkach a memorial službách
+            </p>
+            <form class="newsletter-form max-w-md mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <input
+                        type="email"
+                        placeholder="Váš email"
+                        class="newsletter-input flex-1 px-6 py-3 rounded-full border-none text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gold"
+                        required
+                    >
+                    <button
+                        type="submit"
+                        class="newsletter-button bg-gold hover:bg-yellow-600 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300"
+                    >
+                        Prihlásiť sa
+                    </button>
+                </div>
+            </form>
+            <p class="text-sm text-gray-300 mt-4">
+                Žiadny spam. Môžete sa odhlásiť kedykoľvek.
+            </p>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 bg-cream">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                <h2 class="font-playfair text-4xl font-bold text-dark-gray mb-6">
+                    Potrebujete pomoc s vytvorením spomienky?
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Naši experti vám pomôžu vytvoriť krásne memorial video alebo webstránku, ktorá bude dôstojne uchovávať spomienky na vašich milovaných.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="index.html#kontakt" class="btn-primary">Kontaktujte nás</a>
+                    <a href="index.html#cennik" class="btn-secondary">Pozrieť cenník</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-gray text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="assets/logo.png" alt="eSpomienka Logo" class="h-10 w-auto">
+                        <span class="font-playfair text-xl font-semibold">eSpomienka</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Vytvárame jedinečné video spomienky a memorial webstránky pre vašich milovaných.
+                        Zachovajte spomienky na večnosť s citlivým a profesionálnym prístupom.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="tel:+421951553464" class="text-gold hover:text-yellow-400 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:info@espomienka.sk" class="text-gold hover:text-yellow-400 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Rýchle odkazy</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-gold transition-colors">Domov</a></li>
+                        <li><a href="index.html#sluzby" class="text-gray-300 hover:text-gold transition-colors">Služby</a></li>
+                        <li><a href="index.html#cennik" class="text-gray-300 hover:text-gold transition-colors">Cenník</a></li>
+                        <li><a href="index.html#portfolio" class="text-gray-300 hover:text-gold transition-colors">Portfólio</a></li>
+                        <li><a href="blog.html" class="text-gold">Blog</a></li>
+                        <li><a href="index.html#kontakt" class="text-gray-300 hover:text-gold transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <!-- Blog Categories -->
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Blog kategórie</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Rady</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Technológie</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Inšpirácie</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Rodina</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-600 pt-8 text-center">
+                <p class="text-gray-400 mb-4">© 2025 eSpomienka. Všetky práva vyhradené.</p>
+                <div class="flex justify-center space-x-6 text-sm">
+                    <a href="privacy-policy.html" class="hover:text-gold transition-colors">Ochrana osobných údajov</a>
+                    <a href="terms.html" class="hover:text-gold transition-colors">Obchodné podmienky</a>
+                    <button onclick="showCookieSettings()" class="hover:text-gold transition-colors cursor-pointer">Nastavenia cookies</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookies Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h4>Používame cookies</h4>
+                <p>
+                    Táto stránka používa cookies na zlepšenie vášho zážitku a analýzu návštevnosti.
+                    Pokračovaním súhlasíte s ich používaním.
+                    <a href="privacy-policy.html" class="privacy-link">Zistiť viac</a>
+                </p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="acceptAll" class="btn-accept-all">Prijať všetko</button>
+                <button id="acceptNecessary" class="btn-accept-necessary">Len nevyhnutné</button>
+                <button id="cookieSettings" class="btn-cookie-settings">Nastavenia</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    <script src="cookie-manager.js"></script>
+
+    <!-- Blog JSON Loader -->
+    <script>
+        // Blog JSON loader
+        class BlogLoader {
+            constructor() {
+                this.posts = [];
+                this.categories = [];
+                this.settings = {};
+                this.currentPage = 1;
+                this.postsPerPage = 6;
+                this.init();
+            }
+
+            async init() {
+                try {
+                    await this.loadData();
+                    this.renderBlog();
+                } catch (error) {
+                    console.error('Error loading blog data:', error);
+                    document.getElementById('blogPostsGrid').innerHTML =
+                        '<p style="grid-column: 1 / -1; text-align: center; color: #ef4444;">Chyba pri načítavaní článkov.</p>';
+                }
+            }
+
+            async loadData() {
+                try {
+                    // Load all JSON data
+                    const [postsResponse, categoriesResponse, settingsResponse] = await Promise.all([
+                        fetch('./data/posts.json'),
+                        fetch('./data/categories.json'),
+                        fetch('./data/settings.json')
+                    ]);
+
+                    if (postsResponse.ok) {
+                        this.posts = await postsResponse.json();
+                    }
+                    if (categoriesResponse.ok) {
+                        this.categories = await categoriesResponse.json();
+                    }
+                    if (settingsResponse.ok) {
+                        this.settings = await settingsResponse.json();
+                    }
+
+                    // Sort posts by date (newest first)
+                    this.posts = this.posts
+                        .filter(post => post.published)
+                        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                    this.postsPerPage = this.settings.postsPerPage || 6;
+                } catch (error) {
+                    console.error('Error loading data:', error);
+                    // Fallback to empty arrays
+                    this.posts = [];
+                    this.categories = [];
+                    this.settings = {
+                        blogTitle: 'Rady a inšpirácie',
+                        blogSubtitle: 'Pomáhame vám vytvoriť dokonalé spomienky na vašich milovaných',
+                        postsPerPage: 6
+                    };
+                }
+            }
+
+            renderBlog() {
+                // Update blog header
+                const titleElement = document.getElementById('blogTitle');
+                const subtitleElement = document.getElementById('blogSubtitle');
+
+                if (titleElement) titleElement.textContent = this.settings.blogTitle;
+                if (subtitleElement) subtitleElement.textContent = this.settings.blogSubtitle;
+
+                // Render posts
+                this.renderPosts();
+                this.renderPagination();
+            }
+
+            renderPosts() {
+                const startIndex = (this.currentPage - 1) * this.postsPerPage;
+                const endIndex = startIndex + this.postsPerPage;
+                const currentPosts = this.posts.slice(startIndex, endIndex);
+
+                const postsHTML = currentPosts.map(post => `
+                    <article class="blog-card" data-aos="fade-up">
+                        <div class="blog-image">
+                            ${post.image ? `<img src="${post.image}" alt="${post.title}" loading="lazy" class="w-full h-48 object-cover">` : ''}
+                            <div class="blog-category">${this.getCategoryName(post.category)}</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="date">${new Date(post.date).toLocaleDateString('sk-SK')}</span>
+                                <span class="read-time">${post.readTime} min čítania</span>
+                            </div>
+                            <h3 class="blog-title">${post.title}</h3>
+                            <p class="blog-excerpt">${post.excerpt}</p>
+                            <a href="blog/${post.slug}.html" class="read-more">Čítať celý článok</a>
+                        </div>
+                    </article>
+                `).join('');
+
+                const gridElement = document.getElementById('blogPostsGrid');
+                if (gridElement) {
+                    gridElement.innerHTML = postsHTML || '<p style="grid-column: 1 / -1; text-align: center; color: #6b7280;">Žiadne články na zobrazenie.</p>';
+                }
+            }
+
+            renderPagination() {
+                const totalPages = Math.ceil(this.posts.length / this.postsPerPage);
+                const paginationElement = document.getElementById('blogPagination');
+
+                if (!paginationElement || totalPages <= 1) {
+                    if (paginationElement) paginationElement.style.display = 'none';
+                    return;
+                }
+
+                let paginationHTML = '';
+
+                // Previous button
+                if (this.currentPage > 1) {
+                    paginationHTML += `<button onclick="blogLoader.goToPage(${this.currentPage - 1})" class="btn-secondary">← Predchádzajúca</button>`;
+                }
+
+                // Page numbers
+                for (let i = 1; i <= totalPages; i++) {
+                    const active = i === this.currentPage ? 'btn-primary' : 'btn-secondary';
+                    paginationHTML += `<button class="${active}" onclick="blogLoader.goToPage(${i})">${i}</button>`;
+                }
+
+                // Next button
+                if (this.currentPage < totalPages) {
+                    paginationHTML += `<button onclick="blogLoader.goToPage(${this.currentPage + 1})" class="btn-secondary">Nasledujúca →</button>`;
+                }
+
+                paginationElement.innerHTML = paginationHTML;
+                paginationElement.style.display = 'flex';
+            }
+
+            goToPage(page) {
+                this.currentPage = page;
+                this.renderPosts();
+                this.renderPagination();
+
+                // Scroll to top of blog section
+                const blogSection = document.querySelector('.blog-posts');
+                if (blogSection) {
+                    blogSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            getCategoryName(categoryId) {
+                const category = this.categories.find(c => c.id === categoryId);
+                return category ? category.name : categoryId;
+            }
+        }
+
+        // Initialize blog loader when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            window.blogLoader = new BlogLoader();
+        });
+    </script>
+
+</body>
+</html>

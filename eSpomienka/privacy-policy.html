@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ochrana osobných údajov - eSpomienka</title>
+    <meta name="description" content="Zásady ochrany osobných údajov a používania cookies na webstránke eSpomienka. GDPR compliant informácie o spracovaní vašich údajov.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-inter text-gray-800 bg-cream">
+    
+    <!-- Header -->
+    <header class="static w-full bg-primary shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="assets/logo.png" alt="eSpomienka Logo" class="h-12 w-auto">
+                    <span class="font-playfair text-2xl font-semibold text-white">eSpomienka</span>
+                </div>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#domov" class="nav-link">Domov</a>
+                    <a href="index.html#sluzby" class="nav-link">Služby</a>
+                    <a href="index.html#cennik" class="nav-link">Cenník</a>
+                    <a href="index.html#portfolio" class="nav-link">Portfólio</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+421951553464" class="hidden md:flex items-center space-x-2 font-medium" style="color: #DAA520; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <span>+421 951 553 464</span>
+                    </a>
+                    
+                    <!-- Mobile menu button -->
+                    <button class="md:hidden p-2 text-white" id="mobile-menu-btn">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="pt-4 pb-2 space-y-2">
+                    <a href="index.html#domov" class="block py-2 text-white hover:text-gold transition-colors">Domov</a>
+                    <a href="index.html#sluzby" class="block py-2 text-white hover:text-gold transition-colors">Služby</a>
+                    <a href="index.html#cennik" class="block py-2 text-white hover:text-gold transition-colors">Cenník</a>
+                    <a href="index.html#portfolio" class="block py-2 text-white hover:text-gold transition-colors">Portfólio</a>
+                    <a href="blog.html" class="block py-2 text-white hover:text-gold transition-colors">Blog</a>
+                    <a href="index.html#kontakt" class="block py-2 text-white hover:text-gold transition-colors">Kontakt</a>
+                    <a href="tel:+421951553464" class="block py-2 font-medium" style="color: #DAA520;">+421 951 553 464</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Privacy Policy Content -->
+    <main class="privacy-policy">
+        <div class="container mx-auto px-6 py-16">
+            <h1 class="font-playfair text-4xl md:text-5xl font-bold text-dark-gray mb-8 text-center">
+                Ochrana osobných údajov a používanie cookies
+            </h1>
+            
+            <div class="policy-content max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+                <section class="mb-8">
+                    <h2 class="font-playfair text-2xl font-bold text-dark-gray mb-4 border-b-2 border-gold pb-2">
+                        1. Úvodné informácie
+                    </h2>
+                    <p class="mb-4 leading-relaxed">
+                        Spoločnosť eSpomienka (ďalej len "my" alebo "naša spoločnosť") rešpektuje vaše súkromie 
+                        a zaväzuje sa chrániť vaše osobné údaje. Táto zásada ochrany osobných údajov opisuje, 
+                        ako zbierame, používame a chránime vaše informácie.
+                    </p>
+                    
+                    <div class="bg-cream p-4 rounded-lg">
+                        <p class="font-semibold mb-2">Kontaktné údaje správcu:</p>
+                        <ul class="space-y-1">
+                            <li><strong>Email:</strong> info@ehroby.sk</li>
+                            <li><strong>Telefón:</strong> +421 951 553 464</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="font-playfair text-2xl font-bold text-dark-gray mb-4 border-b-2 border-gold pb-2">
+                        2. Aké údaje zbierame
+                    </h2>
+                    
+                    <h3 class="font-semibold text-lg text-dark-gray mb-3">2.1 Údaje ktoré nám poskytujete:</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
+                        <li><strong>Kontaktné údaje:</strong> meno, email, telefón</li>
+                        <li><strong>Objednávkové údaje:</strong> informácie o zosnulom, fotografie</li>
+                        <li><strong>Platobné údaje:</strong> fakturačné informácie</li>
+                        <li><strong>Komunikácia:</strong> správy, dotazy, pripomienky</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-lg text-dark-gray mb-3">2.2 Údaje zbierané automaticky:</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
+                        <li><strong>Technické údaje:</strong> IP adresa, typ prehliadača</li>
+                        <li><strong>Návštevnosť:</strong> stránky ktoré navštívite, čas návštevy</li>
+                        <li><strong>Cookies:</strong> pozrite sekciu o cookies nižšie</li>
+                    </ul>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="font-playfair text-2xl font-bold text-dark-gray mb-4 border-b-2 border-gold pb-2">
+                        3. Na čo používame vaše údaje
+                    </h2>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>Poskytovanie služieb:</strong> vytvorenie video spomienok a webstránok</li>
+                        <li><strong>Komunikácia:</strong> odpovede na dotazy, aktualizácie objednávok</li>
+                        <li><strong>Zlepšovanie služieb:</strong> analýza návštevnosti, optimalizácia</li>
+                        <li><strong>Marketing:</strong> newsletter (len so súhlasom)</li>
+                        <li><strong>Právne povinnosti:</strong> účtovníctvo, daňové povinnosti</li>
+                    </ul>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="font-playfair text-2xl font-bold text-dark-gray mb-4 border-b-2 border-gold pb-2">
+                        4. Cookies a sledovacie technológie
+                    </h2>
+                    
+                    <h3 class="font-semibold text-lg text-dark-gray mb-3">4.1 Čo sú cookies:</h3>
+                    <p class="mb-6 leading-relaxed">
+                        Cookies sú malé textové súbory uložené vo vašom prehliadači, ktoré nám pomáhajú 
+                        zlepšovať funkcionalitu stránky a analyzovať návštevnosť.
+                    </p>
+
+                    <h3 class="font-semibold text-lg text-dark-gray mb-3">4.2 Typy cookies ktoré používame:</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h4 class="font-semibold text-green-800 mb-2">Nevyhnutné cookies (nepotrebujú súhlas):</h4>
+                            <ul class="list-disc list-inside space-y-1 text-green-700 ml-4">
+                                <li><strong>Session cookies:</strong> zabezpečujú správnu funkcionalitu stránky</li>
+                                <li><strong>Bezpečnostné cookies:</strong> ochrana pred útokom</li>
+                                <li><strong>Cookies súhlasu:</strong> pamätajú si vaše cookie preferencie</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                            <h4 class="font-semibold text-blue-800 mb-2">Analytické cookies (potrebujú súhlas):</h4>
+                            <ul class="list-disc list-inside space-y-1 text-blue-700 ml-4">
+                                <li><strong>Google Analytics:</strong> analýza návštevnosti a správania</li>
+                                <li><strong>Výkonnostné cookies:</strong> optimalizácia rýchlosti stránky</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                            <h4 class="font-semibold text-purple-800 mb-2">Marketingové cookies (potrebujú súhlas):</h4>
+                            <ul class="list-disc list-inside space-y-1 text-purple-700 ml-4">
+                                <li><strong>Facebook Pixel:</strong> remarketing kampane</li>
+                                <li><strong>Google Ads:</strong> sledovanie konverzií</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-lg text-dark-gray mb-3 mt-6">4.3 Správa cookies:</h3>
+                    <p class="mb-4 leading-relaxed">
+                        Cookies môžete kedykoľvek spravovať v nastaveniach vašeho prehliadača alebo 
+                        <button onclick="showCookieSettings()" class="cookie-settings-link">
+                            kliknúť tu pre zmenu nastavení cookies
+                        </button>.
+                    </p>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="font-playfair text-2xl font-bold text-dark-gray mb-4 border-b-2 border-gold pb-2">
+                        5. Zdieľanie údajov
+                    </h2>
+                    <p class="mb-4 leading-relaxed">Vaše údaje nezdieľame s tretími stranami, okrem:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>Techničtí poskytovatelia:</strong> hosting, email služby</li>
+                        <li><strong>Platobné brány:</strong> spracovanie platieb</li>
+                        <li><strong>Právne požiadavky:</strong> na základe zákona</li>
+                    </ul>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="font-playfair text-2xl font-bold text-dark-gray mb-4 border-b-2 border-gold pb-2">
+                        6. Vaše práva
+                    </h2>
+                    <p class="mb-4 leading-relaxed">Podľa GDPR máte právo na:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>Prístup:</strong> informácie o spracovaní vašich údajov</li>
+                        <li><strong>Opravu:</strong> úpravu nesprávnych údajov</li>
+                        <li><strong>Vymazanie:</strong> "právo byť zabudnutý"</li>
+                        <li><strong>Prenosnosť:</strong> export vašich údajov</li>
+                        <li><strong>Námietku:</strong> nesúhlas so spracovaním</li>
+                        <li><strong>Odvolanie súhlasu:</strong> kedykoľvek</li>
+                    </ul>
+                    <p class="mt-4 p-4 bg-gold/10 rounded-lg">
+                        <strong>Pre uplatnenie práv nás kontaktujte na:</strong>
+                        <a href="mailto:info@ehroby.sk" class="text-gold font-semibold">info@ehroby.sk</a>
+                    </p>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="font-playfair text-2xl font-bold text-dark-gray mb-4 border-b-2 border-gold pb-2">
+                        7. Bezpečnosť údajov
+                    </h2>
+                    <p class="mb-4 leading-relaxed">
+                        Používame moderné bezpečnostné opatrenia vrátane SSL šifrovania,
+                        zabezpečených serverov a pravidelných bezpečnostných auditov.
+                    </p>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Bezpečnostné opatrenia:</h4>
+                        <ul class="list-disc list-inside space-y-1 text-blue-700 ml-4">
+                            <li>SSL/TLS šifrovanie pre všetky prenosy údajov</li>
+                            <li>Pravidelné bezpečnostné aktualizácie</li>
+                            <li>Obmedzený prístup k osobným údajom</li>
+                            <li>Pravidelné zálohovanie údajov</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="font-playfair text-2xl font-bold text-dark-gray mb-4 border-b-2 border-gold pb-2">
+                        8. Doba uchovávania
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-cream p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Obchodné údaje:</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li><strong>Objednávkové údaje:</strong> 5 rokov (daňové povinnosti)</li>
+                                <li><strong>Faktúry:</strong> 10 rokov (zákonná povinnosť)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-cream p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Marketingové údaje:</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li><strong>Newsletter:</strong> do odhlásenia</li>
+                                <li><strong>Analytické údaje:</strong> 26 mesiacov</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="font-playfair text-2xl font-bold text-dark-gray mb-4 border-b-2 border-gold pb-2">
+                        9. Zmeny tejto zásady
+                    </h2>
+                    <p class="mb-4 leading-relaxed">
+                        Túto zásadu môžeme aktualizovať. O významných zmenách vás informujeme
+                        emailom alebo oznámením na stránke.
+                    </p>
+                    <p class="font-semibold text-gold">
+                        <strong>Posledná aktualizácia:</strong> 5. júl 2025
+                    </p>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="font-playfair text-2xl font-bold text-dark-gray mb-4 border-b-2 border-gold pb-2">
+                        10. Kontakt
+                    </h2>
+                    <p class="mb-4 leading-relaxed">Ak máte otázky ohľadom ochrany osobných údajov:</p>
+                    <div class="bg-primary text-white p-6 rounded-lg">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-semibold mb-2 text-gold">Kontaktné údaje:</h4>
+                                <ul class="space-y-2">
+                                    <li>
+                                        <strong>Email:</strong>
+                                        <a href="mailto:info@ehroby.sk" class="text-gold hover:text-yellow-300">info@ehroby.sk</a>
+                                    </li>
+                                    <li>
+                                        <strong>Telefón:</strong>
+                                        <a href="tel:+421951553464" class="text-gold hover:text-yellow-300">+421 951 553 464</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2 text-gold">Pracovné hodiny:</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>Pondelok - Piatok: 8:00 - 18:00</li>
+                                    <li>Víkend: 9:00 - 16:00</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="text-center mt-12 p-6 bg-gold/10 rounded-lg">
+                    <p class="text-lg font-semibold text-dark-gray mb-2">
+                        Máte otázky o ochrane osobných údajov?
+                    </p>
+                    <p class="mb-4">Neváhajte nás kontaktovať - radi vám pomôžeme.</p>
+                    <a href="mailto:info@ehroby.sk" class="btn-primary inline-block">
+                        Kontaktovať nás
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-gray text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="assets/logo.png" alt="eSpomienka Logo" class="h-10 w-auto">
+                        <span class="font-playfair text-xl font-semibold">eSpomienka</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Vytvárame digitálne spomienky s úctou a profesionalitou.
+                        Zachovávame pamiatku vašich milovaných na večnosť.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-playfair text-lg font-semibold mb-4">Naše služby</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="index.html#sluzby" class="hover:text-gold transition-colors">Video spomienky</a></li>
+                        <li><a href="index.html#sluzby" class="hover:text-gold transition-colors">Memorial webstránky</a></li>
+                        <li><a href="index.html#cennik" class="hover:text-gold transition-colors">QR kódy pre hrob</a></li>
+                        <li><a href="index.html#cennik" class="hover:text-gold transition-colors">Kompletné balíčky</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-playfair text-lg font-semibold mb-4">Kontakt</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p>
+                            <a href="tel:+421951553464" class="hover:text-gold transition-colors">
+                                +421 951 553 464
+                            </a>
+                        </p>
+                        <p>
+                            <a href="mailto:info@ehroby.sk" class="hover:text-gold transition-colors">
+                                info@ehroby.sk
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-600 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 eSpomienka. Všetky práva vyhradené.</p>
+                <div class="mt-4 flex justify-center space-x-6 text-sm">
+                    <a href="privacy-policy.html" class="hover:text-gold transition-colors">Ochrana osobných údajov</a>
+                    <a href="terms.html" class="hover:text-gold transition-colors">Obchodné podmienky</a>
+                    <button onclick="showCookieSettings()" class="hover:text-gold transition-colors cursor-pointer">Nastavenia cookies</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookies Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h4>Používame cookies</h4>
+                <p>
+                    Táto stránka používa cookies na zlepšenie vášho zážitku a analýzu návštevnosti. 
+                    Pokračovaním súhlasíte s ich používaním.
+                    <a href="privacy-policy.html" class="privacy-link">Zistiť viac</a>
+                </p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="acceptAll" class="btn-accept-all">Prijať všetko</button>
+                <button id="acceptNecessary" class="btn-accept-necessary">Len nevyhnutné</button>
+                <button id="cookieSettings" class="btn-cookie-settings">Nastavenia</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="cookie-manager.js"></script>
+</body>
+</html>

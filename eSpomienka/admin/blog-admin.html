@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eSpomienka Blog Admin - Git CMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(44, 62, 80, 0.15);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #DAA520;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: white;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-tab.active {
+            background: #DAA520;
+            color: white;
+            border-bottom-color: #DAA520;
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: #f1f5f9;
+            color: #2c3e50;
+        }
+
+        .section {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .btn-primary {
+            background: #DAA520;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #b8941c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(218, 165, 32, 0.3);
+        }
+
+        .btn-secondary {
+            background: #64748b;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #475569;
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 0.875rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #2563eb;
+        }
+
+        .btn-delete {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #dc2626;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #DAA520;
+            box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+        }
+
+        .form-checkbox {
+            margin-right: 8px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .table tr:hover {
+            background: #f8fafc;
+        }
+
+        .category-tag {
+            background: #DAA520;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .status-published {
+            background: #10b981;
+            color: white;
+        }
+
+        .status-draft {
+            background: #6b7280;
+            color: white;
+        }
+
+        .image-preview {
+            max-width: 200px;
+            max-height: 150px;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .notifications-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .notification {
+            background: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 10px;
+            border-left: 4px solid #DAA520;
+            animation: slideIn 0.3s ease;
+        }
+
+        .notification.success {
+            border-left-color: #10b981;
+        }
+
+        .notification.error {
+            border-left-color: #ef4444;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .export-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid #0ea5e9;
+        }
+
+        .export-section h3 {
+            color: #0c4a6e;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .export-section p {
+            color: #0369a1;
+            margin-bottom: 20px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6b7280;
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .grid-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="container">
+                <h1>🎯 eSpomienka Blog Admin</h1>
+                <p>Git-based CMS pre správu blog článkov</p>
+            </div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('posts')">📝 Články</button>
+            <button class="nav-tab" onclick="showSection('new-post')">➕ Nový článok</button>
+            <button class="nav-tab" onclick="showSection('categories')">🏷️ Kategórie</button>
+            <button class="nav-tab" onclick="showSection('settings')">⚙️ Nastavenia</button>
+        </div>
+
+        <!-- Posts Section -->
+        <div id="posts" class="section active">
+            <div class="section-header">
+                <h2 class="section-title">Správa článkov</h2>
+                <button id="quickExport" class="btn-primary" onclick="gitBlogAdmin.exportAllData()">
+                    📤 Export pre Git
+                </button>
+            </div>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Názov</th>
+                        <th>Kategória</th>
+                        <th>Dátum</th>
+                        <th>Status</th>
+                        <th>Akcie</th>
+                    </tr>
+                </thead>
+                <tbody id="postsTableBody">
+                    <tr>
+                        <td colspan="5" class="loading">Načítavam články...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- New Post Section -->
+        <div id="new-post" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Nový článok</h2>
+            </div>
+            
+            <form id="postForm">
+                <div class="grid grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Názov článku</label>
+                        <input type="text" id="postTitle" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Kategória</label>
+                        <select id="postCategory" class="form-select" required>
+                            <option value="">Vyberte kategóriu</option>
+                            <option value="rady">Rady</option>
+                            <option value="technologie">Technológie</option>
+                            <option value="inspiracia">Inšpirácia</option>
+                            <option value="rodina">Rodina</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Krátky popis (excerpt)</label>
+                    <textarea id="postExcerpt" class="form-input form-textarea" required></textarea>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Čas čítania (minúty)</label>
+                        <input type="number" id="postReadTime" class="form-input" value="3" min="1" max="30">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Obrázok článku</label>
+                        <input type="file" id="postImage" class="form-input" accept="image/*" onchange="previewImage(this)">
+                        <img id="imagePreview" class="image-preview" alt="Náhľad obrázka">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Obsah článku</label>
+                    <div id="postContent" class="form-input form-textarea" contenteditable="true" style="min-height: 300px; padding: 15px;">
+                        Začnite písať obsah článku...
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="postPublished" class="form-checkbox">
+                        Publikovať článok
+                    </label>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <button type="button" class="btn-primary" onclick="gitBlogAdmin.savePost()">💾 Uložiť článok</button>
+                    <button type="button" class="btn-secondary" onclick="gitBlogAdmin.clearForm()">🗑️ Vymazať formulár</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Categories Section -->
+        <div id="categories" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Kategórie</h2>
+            </div>
+            
+            <div id="categoriesList" class="grid grid-2">
+                <div class="loading">Načítavam kategórie...</div>
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Nastavenia blogu</h2>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label class="form-label">Názov blogu</label>
+                    <input type="text" id="blogTitle" class="form-input" value="Rady a inšpirácie">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Počet článkov na stránku</label>
+                    <input type="number" id="postsPerPage" class="form-input" value="6" min="3" max="12">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Popis blogu</label>
+                <textarea id="blogSubtitle" class="form-input form-textarea">Pomáhame vám vytvoriť dokonalé spomienky na vašich milovaných</textarea>
+            </div>
+
+            <button class="btn-primary" onclick="gitBlogAdmin.saveSettings()">💾 Uložiť nastavenia</button>
+        </div>
+
+        <!-- Export Instructions -->
+        <div class="export-section">
+            <h3>🚀 Git Workflow</h3>
+            <p><strong>1.</strong> Editujte články a kliknite "📤 Export pre Git"</p>
+            <p><strong>2.</strong> Nahrajte exportované súbory do /data/ priečinka</p>
+            <p><strong>3.</strong> Aktualizujte blog.html s novým HTML kódom</p>
+            <p><strong>4.</strong> Commitnite a pushnite zmeny do Git repozitára</p>
+            <p><strong>5.</strong> Vercel/Netlify automaticky deployuje za 1-2 minúty</p>
+        </div>
+    </div>
+
+    <script>
+        class GitBlogAdmin {
+            constructor() {
+                this.posts = [];
+                this.categories = [
+                    { id: 'rady', name: 'Rady', count: 0 },
+                    { id: 'technologie', name: 'Technológie', count: 0 },
+                    { id: 'inspiracia', name: 'Inšpirácia', count: 0 },
+                    { id: 'rodina', name: 'Rodina', count: 0 }
+                ];
+                this.settings = {
+                    blogTitle: 'Rady a inšpirácie',
+                    blogSubtitle: 'Pomáhame vám vytvoriť dokonalé spomienky na vašich milovaných',
+                    postsPerPage: 6
+                };
+                this.currentEditId = null;
+                this.init();
+            }
+
+            async init() {
+                await this.loadDataFromFiles();
+                this.loadPosts();
+                this.loadCategories();
+                this.loadSettings();
+                this.bindEvents();
+                this.updateCategoryCounts();
+            }
+
+            // Load data from JSON files (for editing existing content)
+            async loadDataFromFiles() {
+                try {
+                    // Try to load existing data files
+                    const postsResponse = await fetch('../data/posts.json');
+                    if (postsResponse.ok) {
+                        this.posts = await postsResponse.json();
+                    }
+
+                    const categoriesResponse = await fetch('../data/categories.json');
+                    if (categoriesResponse.ok) {
+                        this.categories = await categoriesResponse.json();
+                    }
+
+                    const settingsResponse = await fetch('../data/settings.json');
+                    if (settingsResponse.ok) {
+                        this.settings = await settingsResponse.json();
+                    }
+                } catch (error) {
+                    console.log('No existing data files found, starting fresh');
+                }
+            }
+
+            bindEvents() {
+                // Mobile menu toggle
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                if (mobileMenuBtn && mobileMenu) {
+                    mobileMenuBtn.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+                }
+            }
+
+            showSection(section) {
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+
+                // Show selected section
+                document.getElementById(section).classList.add('active');
+                event.target.classList.add('active');
+            }
+
+            loadPosts() {
+                const tbody = document.getElementById('postsTableBody');
+                tbody.innerHTML = '';
+
+                if (this.posts.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" class="loading">Žiadne články. Vytvorte svoj prvý článok!</td></tr>';
+                    return;
+                }
+
+                this.posts.forEach(post => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${post.title}</td>
+                        <td><span class="category-tag">${this.getCategoryName(post.category)}</span></td>
+                        <td>${new Date(post.date).toLocaleDateString('sk-SK')}</td>
+                        <td><span class="status-badge status-${post.published ? 'published' : 'draft'}">
+                            ${post.published ? 'Publikovaný' : 'Koncept'}
+                        </span></td>
+                        <td>
+                            <button class="btn-small btn-edit" onclick="gitBlogAdmin.editPost('${post.id}')">Upraviť</button>
+                            <button class="btn-small btn-delete" onclick="gitBlogAdmin.deletePost('${post.id}')">Zmazať</button>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            loadCategories() {
+                const container = document.getElementById('categoriesList');
+                container.innerHTML = '';
+
+                this.categories.forEach(category => {
+                    const categoryCard = document.createElement('div');
+                    categoryCard.style.cssText = 'background: white; padding: 20px; border-radius: 8px; border: 2px solid #e5e7eb;';
+                    categoryCard.innerHTML = `
+                        <h3 style="color: #2c3e50; margin-bottom: 10px;">${category.name}</h3>
+                        <p style="color: #6b7280;">Počet článkov: <strong>${category.count}</strong></p>
+                        <span class="category-tag" style="margin-top: 10px; display: inline-block;">${category.id}</span>
+                    `;
+                    container.appendChild(categoryCard);
+                });
+            }
+
+            loadSettings() {
+                document.getElementById('blogTitle').value = this.settings.blogTitle;
+                document.getElementById('blogSubtitle').value = this.settings.blogSubtitle;
+                document.getElementById('postsPerPage').value = this.settings.postsPerPage;
+            }
+
+            updateCategoryCounts() {
+                this.categories.forEach(category => {
+                    category.count = this.posts.filter(post => post.category === category.id && post.published).length;
+                });
+                this.loadCategories();
+            }
+
+            getCategoryName(categoryId) {
+                const category = this.categories.find(c => c.id === categoryId);
+                return category ? category.name : categoryId;
+            }
+
+            savePost() {
+                const form = document.getElementById('postForm');
+
+                const post = {
+                    id: this.currentEditId || Date.now().toString(),
+                    title: document.getElementById('postTitle').value,
+                    category: document.getElementById('postCategory').value,
+                    excerpt: document.getElementById('postExcerpt').value,
+                    content: document.getElementById('postContent').innerHTML,
+                    readTime: parseInt(document.getElementById('postReadTime').value),
+                    published: document.getElementById('postPublished').checked,
+                    date: this.currentEditId ? this.getPostById(this.currentEditId).date : new Date().toISOString(),
+                    image: document.getElementById('imagePreview').dataset.imageData || '',
+                    slug: this.generateSlug(document.getElementById('postTitle').value)
+                };
+
+                if (this.currentEditId) {
+                    const index = this.posts.findIndex(p => p.id === this.currentEditId);
+                    this.posts[index] = post;
+                } else {
+                    this.posts.push(post);
+                }
+
+                this.loadPosts();
+                this.updateCategoryCounts();
+                this.clearForm();
+                this.showSection('posts');
+
+                this.showNotification('Článok uložený! Nezabudnite exportovať a commitnúť zmeny.', 'success');
+            }
+
+            editPost(id) {
+                const post = this.getPostById(id);
+                if (!post) return;
+
+                this.currentEditId = id;
+
+                document.getElementById('postTitle').value = post.title;
+                document.getElementById('postCategory').value = post.category;
+                document.getElementById('postExcerpt').value = post.excerpt;
+                document.getElementById('postContent').innerHTML = post.content;
+                document.getElementById('postReadTime').value = post.readTime;
+                document.getElementById('postPublished').checked = post.published;
+
+                if (post.image) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.src = post.image;
+                    preview.dataset.imageData = post.image;
+                    preview.style.display = 'block';
+                }
+
+                this.showSection('new-post');
+                this.showNotification('Článok načítaný na úpravu', 'info');
+            }
+
+            deletePost(id) {
+                if (confirm('Naozaj chcete zmazať tento článok?')) {
+                    this.posts = this.posts.filter(p => p.id !== id);
+                    this.loadPosts();
+                    this.updateCategoryCounts();
+                    this.showNotification('Článok zmazaný', 'success');
+                }
+            }
+
+            getPostById(id) {
+                return this.posts.find(p => p.id === id);
+            }
+
+            clearForm() {
+                document.getElementById('postForm').reset();
+                document.getElementById('postContent').innerHTML = 'Začnite písať obsah článku...';
+                document.getElementById('imagePreview').style.display = 'none';
+                document.getElementById('imagePreview').dataset.imageData = '';
+                this.currentEditId = null;
+            }
+
+            saveSettings() {
+                this.settings = {
+                    blogTitle: document.getElementById('blogTitle').value,
+                    blogSubtitle: document.getElementById('blogSubtitle').value,
+                    postsPerPage: parseInt(document.getElementById('postsPerPage').value)
+                };
+                this.showNotification('Nastavenia uložené!', 'success');
+            }
+
+            generateSlug(title) {
+                return title
+                    .toLowerCase()
+                    .replace(/[áäâà]/g, 'a')
+                    .replace(/[éèê]/g, 'e')
+                    .replace(/[íìî]/g, 'i')
+                    .replace(/[óòô]/g, 'o')
+                    .replace(/[úùû]/g, 'u')
+                    .replace(/[ýÿ]/g, 'y')
+                    .replace(/[ñň]/g, 'n')
+                    .replace(/[šś]/g, 's')
+                    .replace(/[žź]/g, 'z')
+                    .replace(/[čć]/g, 'c')
+                    .replace(/[ř]/g, 'r')
+                    .replace(/[ľĺ]/g, 'l')
+                    .replace(/[ť]/g, 't')
+                    .replace(/[ď]/g, 'd')
+                    .replace(/[^a-z0-9]/g, '-')
+                    .replace(/-+/g, '-')
+                    .replace(/^-|-$/g, '');
+            }
+
+            showNotification(message, type = 'info') {
+                // Create notification container if it doesn't exist
+                let container = document.getElementById('notifications');
+                if (!container) {
+                    container = document.createElement('div');
+                    container.id = 'notifications';
+                    container.className = 'notifications-container';
+                    document.body.appendChild(container);
+                }
+
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.innerHTML = `
+                    <strong>${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}</strong>
+                    ${message}
+                `;
+
+                container.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.remove();
+                }, 5000);
+            }
+
+            // Export all data as downloadable JSON files
+            exportAllData() {
+                this.exportPostsJSON();
+                this.exportCategoriesJSON();
+                this.exportSettingsJSON();
+                this.exportSiteUpdate();
+
+                alert(`
+🎉 Export kompletný!
+
+Stiahli sa 4 súbory:
+1. posts.json → nahraj do /data/
+2. categories.json → nahraj do /data/
+3. settings.json → nahraj do /data/
+4. blog-update.html → nahraj obsah do blog.html
+
+Potom commitni a pushni do Git repozitára!
+                `);
+            }
+
+            exportPostsJSON() {
+                const data = this.posts.map(post => ({
+                    ...post,
+                    // Ensure dates are properly formatted
+                    date: new Date(post.date).toISOString(),
+                    // Clean up any HTML entities
+                    excerpt: this.cleanText(post.excerpt),
+                    title: this.cleanText(post.title)
+                }));
+
+                this.downloadJSON(data, 'posts.json');
+            }
+
+            exportCategoriesJSON() {
+                this.downloadJSON(this.categories, 'categories.json');
+            }
+
+            exportSettingsJSON() {
+                this.downloadJSON(this.settings, 'settings.json');
+            }
+
+            // Generate complete blog HTML that reads from JSON
+            exportSiteUpdate() {
+                const blogHTML = `
+<!-- BLOG SECTION - Replace in your main blog.html -->
+<section class="blog-intro">
+  <div class="container">
+    <h2 id="blogTitle">Rady a inšpirácie</h2>
+    <p class="subtitle" id="blogSubtitle">Pomáhame vám vytvoriť dokonalé spomienky na vašich milovaných</p>
+  </div>
+</section>
+
+<section class="blog-posts">
+  <div class="container">
+    <div class="posts-grid" id="blogPostsGrid">
+      <!-- Posts will be loaded here by JavaScript -->
+      <div class="loading">Načítavam články...</div>
+    </div>
+
+    <div class="blog-pagination" id="blogPagination" style="display: none;">
+      <!-- Pagination buttons will be added here -->
+    </div>
+  </div>
+</section>
+
+<script>
+// Blog JSON loader
+class BlogLoader {
+  constructor() {
+    this.posts = [];
+    this.categories = [];
+    this.settings = {};
+    this.currentPage = 1;
+    this.postsPerPage = 6;
+    this.init();
+  }
+
+  async init() {
+    try {
+      await this.loadData();
+      this.renderBlog();
+    } catch (error) {
+      console.error('Error loading blog data:', error);
+      document.getElementById('blogPostsGrid').innerHTML =
+        '<p>Chyba pri načítavaní článkov.</p>';
+    }
+  }
+
+  async loadData() {
+    // Load all JSON data
+    const [postsResponse, categoriesResponse, settingsResponse] = await Promise.all([
+      fetch('./data/posts.json'),
+      fetch('./data/categories.json'),
+      fetch('./data/settings.json')
+    ]);
+
+    this.posts = await postsResponse.json();
+    this.categories = await categoriesResponse.json();
+    this.settings = await settingsResponse.json();
+
+    // Sort posts by date (newest first)
+    this.posts = this.posts
+      .filter(post => post.published)
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    this.postsPerPage = this.settings.postsPerPage || 6;
+  }
+
+  renderBlog() {
+    // Update blog header
+    document.getElementById('blogTitle').textContent = this.settings.blogTitle;
+    document.getElementById('blogSubtitle').textContent = this.settings.blogSubtitle;
+
+    // Render posts
+    this.renderPosts();
+    this.renderPagination();
+  }
+
+  renderPosts() {
+    const startIndex = (this.currentPage - 1) * this.postsPerPage;
+    const endIndex = startIndex + this.postsPerPage;
+    const currentPosts = this.posts.slice(startIndex, endIndex);
+
+    const postsHTML = currentPosts.map(post => \`
+      <article class="blog-card">
+        <div class="blog-image">
+          \${post.image ? \`<img src="\${post.image}" alt="\${post.title}" loading="lazy">\` : ''}
+          <div class="blog-category">\${this.getCategoryName(post.category)}</div>
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span class="date">\${new Date(post.date).toLocaleDateString('sk-SK')}</span>
+            <span class="read-time">\${post.readTime} min čítania</span>
+          </div>
+          <h3 class="blog-title">\${post.title}</h3>
+          <p class="blog-excerpt">\${post.excerpt}</p>
+          <a href="/article/\${post.id}" class="read-more">Čítať celý článok</a>
+        </div>
+      </article>
+    \`).join('');
+
+    document.getElementById('blogPostsGrid').innerHTML = postsHTML || '<p>Žiadne články na zobrazenie.</p>';
+  }
+
+  renderPagination() {
+    const totalPages = Math.ceil(this.posts.length / this.postsPerPage);
+
+    if (totalPages <= 1) {
+      document.getElementById('blogPagination').style.display = 'none';
+      return;
+    }
+
+    let paginationHTML = '';
+
+    // Previous button
+    if (this.currentPage > 1) {
+      paginationHTML += \`<button onclick="blogLoader.goToPage(\${this.currentPage - 1})">← Predchádzajúca</button>\`;
+    }
+
+    // Page numbers
+    for (let i = 1; i <= totalPages; i++) {
+      const active = i === this.currentPage ? 'active' : '';
+      paginationHTML += \`<button class="\${active}" onclick="blogLoader.goToPage(\${i})">\${i}</button>\`;
+    }
+
+    // Next button
+    if (this.currentPage < totalPages) {
+      paginationHTML += \`<button onclick="blogLoader.goToPage(\${this.currentPage + 1})">Nasledujúca →</button>\`;
+    }
+
+    document.getElementById('blogPagination').innerHTML = paginationHTML;
+    document.getElementById('blogPagination').style.display = 'flex';
+  }
+
+  goToPage(page) {
+    this.currentPage = page;
+    this.renderPosts();
+    this.renderPagination();
+
+    // Scroll to top of blog section
+    document.querySelector('.blog-posts').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  getCategoryName(categoryId) {
+    const category = this.categories.find(c => c.id === categoryId);
+    return category ? category.name : categoryId;
+  }
+}
+
+// Initialize blog loader when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  window.blogLoader = new BlogLoader();
+});
+</script>
+
+<!-- END BLOG SECTION -->
+                `;
+
+                this.downloadFile(blogHTML, 'blog-update.html', 'text/html');
+            }
+
+            // Helper function to download JSON
+            downloadJSON(data, filename) {
+                const jsonString = JSON.stringify(data, null, 2);
+                this.downloadFile(jsonString, filename, 'application/json');
+            }
+
+            // Helper function to download any file
+            downloadFile(content, filename, mimeType) {
+                const blob = new Blob([content], { type: mimeType });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+
+            // Clean text for JSON export
+            cleanText(text) {
+                return text
+                    .replace(/&nbsp;/g, ' ')
+                    .replace(/&amp;/g, '&')
+                    .replace(/&lt;/g, '<')
+                    .replace(/&gt;/g, '>')
+                    .replace(/&quot;/g, '"')
+                    .trim();
+            }
+        }
+
+        // Global instance
+        let gitBlogAdmin;
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            gitBlogAdmin = new GitBlogAdmin();
+        });
+
+        // Global functions for HTML onclick handlers
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+
+            // Show selected section
+            document.getElementById(section).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.src = e.target.result;
+                    preview.dataset.imageData = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
