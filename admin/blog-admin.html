@@ -821,112 +821,74 @@ Potom commitni a pushni do Git repozitára!
 
             // Generate complete blog HTML that reads from JSON
             exportSiteUpdate() {
-                const blogHTML = `<!-- BLOG SECTION - Replace in your main blog.html -->
-<section class="blog-intro">
-  <div class="container">
-    <h2 id="blogTitle">Rady a inšpirácie</h2>
-    <p class="subtitle" id="blogSubtitle">Pomáhame vám vytvoriť dokonalé spomienky na vašich milovaných</p>
-  </div>
-</section>
-
-<section class="blog-posts">
-  <div class="container">
-    <div class="posts-grid" id="blogPostsGrid">
-      <!-- Posts will be loaded here by JavaScript -->
-      <div class="loading">Načítavam články...</div>
-    </div>
-
-    <div class="blog-pagination" id="blogPagination" style="display: none;">
-      <!-- Pagination buttons will be added here -->
-    </div>
-  </div>
-</section>
-
-<script>
-// Blog JSON loader - add this to your blog.html
-class BlogLoader {
-  constructor() {
-    this.posts = [];
-    this.categories = [];
-    this.settings = {};
-    this.currentPage = 1;
-    this.postsPerPage = 6;
-    this.init();
-  }
-
-  async init() {
-    try {
-      await this.loadData();
-      this.renderBlog();
-    } catch (error) {
-      console.error('Error loading blog data:', error);
-      document.getElementById('blogPostsGrid').innerHTML =
-        '<p>Chyba pri načítavaní článkov.</p>';
-    }
-  }
-
-  async loadData() {
-    const [postsResponse, categoriesResponse, settingsResponse] = await Promise.all([
-      fetch('./data/posts.json'),
-      fetch('./data/categories.json'),
-      fetch('./data/settings.json')
-    ]);
-
-    this.posts = await postsResponse.json();
-    this.categories = await categoriesResponse.json();
-    this.settings = await settingsResponse.json();
-
-    this.posts = this.posts
-      .filter(post => post.published)
-      .sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    this.postsPerPage = this.settings.postsPerPage || 6;
-  }
-
-  renderBlog() {
-    document.getElementById('blogTitle').textContent = this.settings.blogTitle;
-    document.getElementById('blogSubtitle').textContent = this.settings.blogSubtitle;
-    this.renderPosts();
-    this.renderPagination();
-  }
-
-  renderPosts() {
-    const startIndex = (this.currentPage - 1) * this.postsPerPage;
-    const endIndex = startIndex + this.postsPerPage;
-    const currentPosts = this.posts.slice(startIndex, endIndex);
-
-    const postsHTML = currentPosts.map(post => \`
-      <article class="blog-card">
-        <div class="blog-image">
-          \${post.image ? \`<img src="\${post.image}" alt="\${post.title}" loading="lazy">\` : ''}
-          <div class="blog-category">\${this.getCategoryName(post.category)}</div>
-        </div>
-        <div class="blog-content">
-          <div class="blog-meta">
-            <span class="date">\${new Date(post.date).toLocaleDateString('sk-SK')}</span>
-            <span class="read-time">\${post.readTime} min čítania</span>
-          </div>
-          <h3 class="blog-title">\${post.title}</h3>
-          <p class="blog-excerpt">\${post.excerpt}</p>
-          <a href="blog/\${post.slug}.html" class="read-more">Čítať celý článok</a>
-        </div>
-      </article>
-    \`).join('');
-
-    document.getElementById('blogPostsGrid').innerHTML = postsHTML || '<p>Žiadne články na zobrazenie.</p>';
-  }
-
-  getCategoryName(categoryId) {
-    const category = this.categories.find(c => c.id === categoryId);
-    return category ? category.name : categoryId;
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  window.blogLoader = new BlogLoader();
-});
-</script>
-<!-- END BLOG SECTION -->`;
+                const blogHTML = '<!-- BLOG SECTION - Replace in your main blog.html -->' +
+                    '<section class="blog-intro">' +
+                    '  <div class="container">' +
+                    '    <h2 id="blogTitle">Rady a inšpirácie</h2>' +
+                    '    <p class="subtitle" id="blogSubtitle">Pomáhame vám vytvoriť dokonalé spomienky na vašich milovaných</p>' +
+                    '  </div>' +
+                    '</section>' +
+                    '<section class="blog-posts">' +
+                    '  <div class="container">' +
+                    '    <div class="posts-grid" id="blogPostsGrid">' +
+                    '      <div class="loading">Načítavam články...</div>' +
+                    '    </div>' +
+                    '    <div class="blog-pagination" id="blogPagination" style="display: none;"></div>' +
+                    '  </div>' +
+                    '</section>' +
+                    '<' + 'script>' +
+                    'class BlogLoader {' +
+                    '  constructor() {' +
+                    '    this.posts = [];' +
+                    '    this.categories = [];' +
+                    '    this.settings = {};' +
+                    '    this.currentPage = 1;' +
+                    '    this.postsPerPage = 6;' +
+                    '    this.init();' +
+                    '  }' +
+                    '  async init() {' +
+                    '    try {' +
+                    '      await this.loadData();' +
+                    '      this.renderBlog();' +
+                    '    } catch (error) {' +
+                    '      console.error("Error loading blog data:", error);' +
+                    '      document.getElementById("blogPostsGrid").innerHTML = "<p>Chyba pri načítavaní článkov.</p>";' +
+                    '    }' +
+                    '  }' +
+                    '  async loadData() {' +
+                    '    const [postsResponse, categoriesResponse, settingsResponse] = await Promise.all([' +
+                    '      fetch("./data/posts.json"),' +
+                    '      fetch("./data/categories.json"),' +
+                    '      fetch("./data/settings.json")' +
+                    '    ]);' +
+                    '    this.posts = await postsResponse.json();' +
+                    '    this.categories = await categoriesResponse.json();' +
+                    '    this.settings = await settingsResponse.json();' +
+                    '    this.posts = this.posts.filter(post => post.published).sort((a, b) => new Date(b.date) - new Date(a.date));' +
+                    '    this.postsPerPage = this.settings.postsPerPage || 6;' +
+                    '  }' +
+                    '  renderBlog() {' +
+                    '    document.getElementById("blogTitle").textContent = this.settings.blogTitle;' +
+                    '    document.getElementById("blogSubtitle").textContent = this.settings.blogSubtitle;' +
+                    '    this.renderPosts();' +
+                    '  }' +
+                    '  renderPosts() {' +
+                    '    const startIndex = (this.currentPage - 1) * this.postsPerPage;' +
+                    '    const endIndex = startIndex + this.postsPerPage;' +
+                    '    const currentPosts = this.posts.slice(startIndex, endIndex);' +
+                    '    const postsHTML = currentPosts.map(post => `<article class="blog-card"><div class="blog-image">${post.image ? `<img src="${post.image}" alt="${post.title}" loading="lazy">` : ""}<div class="blog-category">${this.getCategoryName(post.category)}</div></div><div class="blog-content"><div class="blog-meta"><span class="date">${new Date(post.date).toLocaleDateString("sk-SK")}</span><span class="read-time">${post.readTime} min čítania</span></div><h3 class="blog-title">${post.title}</h3><p class="blog-excerpt">${post.excerpt}</p><a href="blog/${post.slug}.html" class="read-more">Čítať celý článok</a></div></article>`).join("");' +
+                    '    document.getElementById("blogPostsGrid").innerHTML = postsHTML || "<p>Žiadne články na zobrazenie.</p>";' +
+                    '  }' +
+                    '  getCategoryName(categoryId) {' +
+                    '    const category = this.categories.find(c => c.id === categoryId);' +
+                    '    return category ? category.name : categoryId;' +
+                    '  }' +
+                    '}' +
+                    'document.addEventListener("DOMContentLoaded", () => {' +
+                    '  window.blogLoader = new BlogLoader();' +
+                    '});' +
+                    '</' + 'script>' +
+                    '<!-- END BLOG SECTION -->';
 
                 this.downloadFile(blogHTML, 'blog-update.html', 'text/html');
             }
