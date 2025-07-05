@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ako vybrať najkrajšie fotografie pre memorial video - eSpomienka Blog</title>
+    <meta name="description" content="Výber správnych fotografií je kľúčový pre vytvorenie dojímavej video spomienky. Poradíme vám, na čo sa zamerať pri výbere snímok.">
+    <meta name="keywords" content="memorial video, fotografie, spomienky, video spomienky, eSpomienka">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-inter text-gray-800 bg-cream">
+    
+    <!-- Header -->
+    <header class="static w-full bg-primary shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="../assets/logo.png" alt="eSpomienka Logo" class="h-12 w-auto">
+                    <span class="font-playfair text-2xl font-semibold text-white">eSpomienka</span>
+                </div>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link">Domov</a>
+                    <a href="../index.html#sluzby" class="nav-link">Služby</a>
+                    <a href="../index.html#cennik" class="nav-link">Cenník</a>
+                    <a href="../index.html#portfolio" class="nav-link">Portfólio</a>
+                    <a href="../blog.html" class="nav-link text-gold">Blog</a>
+                    <a href="../index.html#kontakt" class="nav-link">Kontakt</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+421951553464" class="hidden md:flex items-center space-x-2 font-medium" style="color: #DAA520; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <span>+421 951 553 464</span>
+                    </a>
+                    
+                    <!-- Mobile menu button -->
+                    <button class="md:hidden p-2 text-white" id="mobile-menu-btn">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Header -->
+    <section class="py-20 bg-cream">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-6">
+                    <a href="../blog.html" class="inline-flex items-center text-gold hover:text-yellow-600 transition-colors">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                        Späť na blog
+                    </a>
+                </div>
+                <div class="flex items-center justify-center mb-6">
+                    <span class="px-4 py-2 rounded-full text-sm font-semibold mr-4" style="background: #DAA520; color: #FFFFFF;">ODPORÚČANÉ</span>
+                    <span class="text-sm text-gray-600">5. Júl 2025 • 3 min čítania</span>
+                </div>
+                <h1 class="font-playfair text-4xl md:text-5xl font-bold mb-6 text-primary" data-aos="fade-up">
+                    Ako vybrať najkrajšie fotografie pre memorial video
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Výber správnych fotografií je kľúčový pre vytvorenie dojímavej video spomienky. Poradíme vám, na čo sa zamerať pri výbere snímok, ktoré najlepšie zachytia osobnosť a krásne chvíle vášho milovaného.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <!-- Featured Image -->
+                <div class="mb-12" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Vintage fotografie" class="w-full h-96 object-cover rounded-2xl shadow-lg">
+                </div>
+
+                <!-- Article Body -->
+                <div class="prose prose-lg max-w-none" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-lg leading-relaxed mb-8 text-gray-700">
+                        Memorial video je jedným z najkrajších spôsobov, ako uctiť pamiatku milovanej osoby. Správne vybrané fotografie dokážu vyrozprávať príbeh života, zachytiť osobnosť a vyvolať tie najkrajšie spomienky. Ale ako vybrať tie správne snímky z možno tisícok fotografií?
+                    </p>
+
+                    <h2 class="font-playfair text-3xl font-bold mb-6 text-primary">1. Začnite chronologicky</h2>
+                    <p class="mb-6 text-gray-700 leading-relaxed">
+                        Najlepší prístup je začať s chronologickým výberom. Vyberte fotografie z rôznych období života - detstvo, mladosť, stredný vek, starší vek. Tento prístup vám pomôže vytvoriť ucelený príbeh života a ukázať, ako sa vaša milovaná osoba menila a rástla.
+                    </p>
+
+                    <h2 class="font-playfair text-3xl font-bold mb-6 text-primary">2. Zamerajte sa na emócie</h2>
+                    <p class="mb-6 text-gray-700 leading-relaxed">
+                        Najdôležitejšie sú fotografie, ktoré zachytávajú skutočné emócie. Hľadajte snímky, kde sa vaša milovaná osoba smeje, objíma niekoho, alebo má v očiach radosť. Tieto fotografie majú najväčšiu emocionálnu silu a dokážu najlepšie preniesť osobnosť.
+                    </p>
+
+                    <h2 class="font-playfair text-3xl font-bold mb-6 text-primary">3. Kvalita vs. význam</h2>
+                    <p class="mb-6 text-gray-700 leading-relaxed">
+                        Nie vždy musí byť najkrajšia fotografia tá technicky najlepšia. Niekedy má rozmazaná fotografia z rodinnej oslavy väčší emocionálny význam ako dokonalý portrét. Vždy uprednostnite význam a emócie pred technickou kvalitou.
+                    </p>
+
+                    <h2 class="font-playfair text-3xl font-bold mb-6 text-primary">4. Zahrňte rôzne situácie</h2>
+                    <p class="mb-6 text-gray-700 leading-relaxed">
+                        Snažte sa vybrať fotografie z rôznych situácií a prostredí:
+                    </p>
+                    <ul class="mb-6 text-gray-700 leading-relaxed list-disc pl-6">
+                        <li>Rodinné oslavy a sviatky</li>
+                        <li>Každodenné chvíle doma</li>
+                        <li>Dovolenky a výlety</li>
+                        <li>Práca a koníčky</li>
+                        <li>Chvíle s priateľmi</li>
+                    </ul>
+
+                    <h2 class="font-playfair text-3xl font-bold mb-6 text-primary">5. Technické tipy</h2>
+                    <p class="mb-6 text-gray-700 leading-relaxed">
+                        Pri výbere fotografií pre video dbajte na tieto technické aspekty:
+                    </p>
+                    <ul class="mb-8 text-gray-700 leading-relaxed list-disc pl-6">
+                        <li><strong>Rozlíšenie:</strong> Vyberte najvyššie dostupné rozlíšenie</li>
+                        <li><strong>Orientácia:</strong> Kombinujte horizontálne aj vertikálne fotografie</li>
+                        <li><strong>Osvetlenie:</strong> Uprednostnite dobre osvetlené snímky</li>
+                        <li><strong>Kompozícia:</strong> Vyberte fotografie s jasným ústredným motívom</li>
+                    </ul>
+
+                    <div class="bg-cream p-8 rounded-2xl mb-8">
+                        <h3 class="font-playfair text-2xl font-bold mb-4 text-primary">💡 Tip od expertov</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Nevyberte príliš veľa fotografií naraz. Pre 3-5 minútové video stačí 15-25 kvalitných snímok. Menej je niekedy viac - každá fotografia bude mať viac času na pôsobenie a vyvolanie emócií.
+                        </p>
+                    </div>
+
+                    <h2 class="font-playfair text-3xl font-bold mb-6 text-primary">Záver</h2>
+                    <p class="mb-8 text-gray-700 leading-relaxed">
+                        Výber fotografií pre memorial video je intímny a osobný proces. Dôverujte svojmu srdcu a vyberte tie snímky, ktoré najlepšie reprezentujú osobnosť a život vášho milovaného. Pamätajte, že cieľom nie je vytvoriť dokonalé video, ale zachytiť podstatu človeka, ktorého si pripomínate.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="py-16 bg-cream">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-playfair text-3xl font-bold text-center mb-12 text-primary">Súvisiace články</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Hudba a spomienky" class="w-full h-48 object-cover">
+                            <div class="blog-category">Inšpirácie</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="date">15. Jún 2025</span>
+                                <span class="read-time">3 min čítania</span>
+                            </div>
+                            <h3 class="blog-title">Výber hudby pre memorial video: Emotívny sprievodca</h3>
+                            <p class="blog-excerpt">Hudba má moc vyvolať spomienky a emócie. Naučte sa, ako vybrať správnu hudbu pre memorial video...</p>
+                            <a href="vyber-hudby-pre-memorial-video.html" class="read-more">Čítať celý článok</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Memorial webstránka" class="w-full h-48 object-cover">
+                            <div class="blog-category">Rady</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="date">20. Jún 2025</span>
+                                <span class="read-time">4 min čítania</span>
+                            </div>
+                            <h3 class="blog-title">Ako vytvoriť memorial webstránku, ktorá osloví</h3>
+                            <p class="blog-excerpt">Memorial webstránka je miesto, kde sa môžu blízki stretávať a zdieľať spomienky...</p>
+                            <a href="ako-vytvorit-memorial-webstranku.html" class="read-more">Čítať celý článok</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-primary">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="font-playfair text-4xl font-bold text-white mb-6">
+                    Potrebujete pomoc s vytvorením memorial videa?
+                </h2>
+                <p class="text-xl text-gray-200 mb-8">
+                    Naši experti vám pomôžu vybrať tie najkrajšie fotografie a vytvoriť dojímavé video, ktoré bude dôstojne uchovávať spomienky na vášho milovaného.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="../index.html#kontakt" class="btn-primary bg-gold hover:bg-yellow-600">Kontaktujte nás</a>
+                    <a href="../index.html#cennik" class="btn-secondary border-white text-white hover:bg-white hover:text-primary">Pozrieť cenník</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-gray text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="../assets/logo.png" alt="eSpomienka Logo" class="h-10 w-auto">
+                        <span class="font-playfair text-xl font-semibold">eSpomienka</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Vytvárame jedinečné video spomienky a memorial webstránky pre vašich milovaných.
+                        Zachovajte spomienky na večnosť s citlivým a profesionálnym prístupom.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Rýchle odkazy</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-300 hover:text-gold transition-colors">Domov</a></li>
+                        <li><a href="../index.html#sluzby" class="text-gray-300 hover:text-gold transition-colors">Služby</a></li>
+                        <li><a href="../index.html#cennik" class="text-gray-300 hover:text-gold transition-colors">Cenník</a></li>
+                        <li><a href="../blog.html" class="text-gold">Blog</a></li>
+                        <li><a href="../index.html#kontakt" class="text-gray-300 hover:text-gold transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Kontakt</h3>
+                    <div class="space-y-2">
+                        <a href="tel:+421951553464" class="text-gold hover:text-yellow-400 transition-colors">+421 951 553 464</a>
+                        <br>
+                        <a href="mailto:info@espomienka.sk" class="text-gray-300 hover:text-gold transition-colors">info@espomienka.sk</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-600 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 eSpomienka. Všetky práva vyhradené.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../script.js"></script>
+
+</body>
+</html>
